@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Acceptability Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🚨 Joke Acceptability Checker 🚨</h1>
+        <p>Does your joke contain any of the following?</p>
+
+        <form method="POST">
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="joke_features" value="Abusive Language"> Abusive Language</label>
+                <label><input type="checkbox" name="joke_features" value="Cultural Sensitivity"> Cultural Sensitivity</label>
+                <label><input type="checkbox" name="joke_features" value="Religious Sentiments"> Religious Sentiments</label>
+                <label><input type="checkbox" name="joke_features" value="Politics"> Politics</label>
+                <label><input type="checkbox" name="joke_features" value="Womenizer (Misogyny)"> Womenizer (Misogyny)</label>
+                <label><input type="checkbox" name="joke_features" value="Obscene Content"> Obscene Content</label>
+                <label><input type="checkbox" name="joke_features" value="Vulgar Language"> Vulgar Language</label>
+                <label><input type="checkbox" name="joke_features" value="Caste Discrimination"> Caste Discrimination</label>
+                <label><input type="checkbox" name="joke_features" value="Racism"> Racism</label>
+                <label><input type="checkbox" name="joke_features" value="Sexual Context"> Sexual Context</label>
+            </div>
+
+            <button type="submit">Check Joke</button>
+        </form>
+
+        {% if message %}
+        <div class="result {{ level }}">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
